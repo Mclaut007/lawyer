@@ -1,0 +1,195 @@
+.our-lawyers {
+  background: var(--gray-color-bg);
+  // .our-lawyers__container
+
+  &__container {
+    // padding-top: rem(80);
+    padding-top: proadrem(60, 80, $tabletRemWithout, $maxWidthRemWithout);
+    // padding-bottom: rem(80);
+    padding-bottom: proadrem(60, 80, $tabletRemWithout, $maxWidthRemWithout);
+    @media (max-width: $tablet) {
+      padding-top: proadrem(40, 60, $mobileSmallRemWithout, $tabletRemWithout);
+      padding-bottom: proadrem(46, 60, $mobileSmallRemWithout, $tabletRemWithout);
+    }
+  }
+
+  // .our-lawyers__heading
+
+  &__heading {
+    text-align: center;
+    margin-bottom: rem(37);
+    @media (max-width: $tablet) {
+      margin-bottom: proadrem(29, 37, $mobileSmallRemWithout, $tabletRemWithout);
+    }
+  }
+
+  // .our-lawyers__paragraph
+
+  &__paragraph {
+    text-align: center;
+    max-width: rem(920);
+    margin-left: auto;
+    margin-right: auto;
+    &:not(:last-child) {
+      margin-bottom: rem(48);
+    }
+    @media (max-width: $tablet) {
+      &:not(:last-child) {
+        margin-bottom: proadrem(29, 48, $mobileSmallRemWithout, $tabletRemWithout);
+      }
+    }
+  }
+
+  // .our-lawyers__items
+
+  &__items {
+    overflow: visible;
+  }
+
+  // .our-lawyers__swiper-wrapper
+
+  &__swiper-wrapper {
+    align-items: stretch;
+  }
+
+  // .our-lawyers__item
+
+  &__item {
+  }
+}
+.heading2 {
+}
+.intro-text {
+}
+.swiper {
+}
+.swiper-wrapper {
+}
+.lawyers-item {
+  // min-height: rem(414);
+  // height: rem(414);
+  height: unset;
+  background: #fff;
+  box-shadow: 2px 2px 12px 0px rgba(33, 33, 33, 0.12);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: rem(312);
+  // width: proadrem(300, 312, $tabletRemWithout, $maxWidthRemWithout);
+  @media (max-width: $tabletLarge) {
+    width: rem(300);
+  }
+  @media (max-width: $tablet) {
+    width: proadrem(250, 300, $mobileSmallRemWithout, $tabletRemWithout);
+  }
+  // .lawyers-item__img-wrapper
+
+  &__img-wrapper {
+    // height: rem(320);
+    height: proadrem(235, 320, $mobileSmallRemWithout, $tabletRemWithout);
+    position: relative;
+    opacity: 1;
+    transition: all 0.3s ease 0s;
+    // flex-shrink: 0;
+  }
+  @media (any-hover: hover) and (pointer: fine) {
+    &:hover {
+      .lawyers-item__img-wrapper {
+        height: 0;
+        opacity: 0;
+        position: relative;
+      }
+      .lawyers-item__extra-info {
+        // height: auto;
+        // max-height: rem(500);
+        font-size: rem(14);
+        opacity: 1;
+      }
+      .lawyers-item__experience {
+        // height: auto;
+        // max-height: rem(500);
+        font-size: rem(16);
+        opacity: 1;
+      }
+      .lawyers-item__text {
+        background: url(./../images/our-lawyers/corner-decor-top-left.svg) no-repeat left rem(20) top rem(20),
+          url(./../images/our-lawyers/corner-decor-top-right.svg) no-repeat right rem(20) top rem(20),
+          url(./../images/our-lawyers/corner-decor-bottom-left.svg) no-repeat left rem(20) bottom rem(20),
+          url(./../images/our-lawyers/corner-decor-bottom-right.svg) no-repeat right rem(20) bottom rem(20);
+        gap: rem(40);
+      }
+    }
+  }
+
+  // .lawyers-item__img
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  // .lawyers-item__text
+
+  &__text {
+    padding: rem(24) rem(15);
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0;
+    transition: gap 0.3s ease 0s;
+  }
+
+  // .lawyers-item__common-info
+
+  &__common-info {
+  }
+
+  // .lawyers-item__name
+
+  &__name {
+    font-size: rem(16);
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+  }
+
+  // .lawyers-item__specialization
+
+  &__specialization {
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+
+  // .lawyers-item__extra-info
+
+  &__extra-info {
+    font-weight: 300;
+    // height: 0;
+    // max-height: 0;
+    font-size: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: font-size 0.3s ease 0s, opacity 0.3s ease 0.3s;
+  }
+
+  // .lawyers-item__experience
+
+  &__experience {
+    // font-size: rem(16);
+    font-weight: 600;
+    font-size: 0;
+    // height: 0;
+    // max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: font-size 0.3s ease 0s, opacity 0.3s ease 0.3s;
+  }
+}
+.swiper-slide {
+}

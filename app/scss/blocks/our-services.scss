@@ -1,0 +1,166 @@
+.our-services {
+  // background: #f7f7f7;
+  background: var(--gray-color-bg);
+  // .our-services__container
+
+  &__container {
+    // padding-top: rem(80);
+    padding-top: proadrem(60, 80, $tabletRemWithout, $maxWidthRemWithout);
+    // padding-bottom: rem(80);
+    padding-bottom: proadrem(60, 80, $tabletRemWithout, $maxWidthRemWithout);
+    text-align: center;
+    @media (max-width: $tablet) {
+      padding-top: proadrem(40, 60, $mobileSmallRemWithout, $tabletRemWithout);
+      padding-bottom: proadrem(38, 60, $mobileSmallRemWithout, $tabletRemWithout);
+    }
+  }
+
+  // .our-services__heading
+
+  &__heading {
+    margin-bottom: rem(37);
+    @media (max-width: $tablet) {
+      margin-bottom: proadrem(29, 37, $mobileSmallRemWithout, $tabletRemWithout);
+    }
+  }
+
+  // .our-services__paragraph
+
+  &__paragraph {
+    max-width: rem(920);
+    margin-left: auto;
+    margin-right: auto;
+    &:not(:last-child) {
+      margin-bottom: rem(48);
+    }
+    @media (max-width: $tablet) {
+      &:not(:last-child) {
+        margin-bottom: proadrem(24, 48, $mobileSmallRemWithout, $tabletRemWithout);
+      }
+    }
+  }
+
+  // .our-services__swiper
+
+  &__swiper {
+    overflow: visible;
+    &:not(:last-child) {
+      margin-bottom: rem(48);
+      @media (max-width: $tablet) {
+        margin-bottom: proadrem(30, 48, $mobileSmallRemWithout, $tabletRemWithout);
+      }
+    }
+  }
+
+  //. our-services__swiper-wrapper
+
+  // .our-services__items
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // gap: rem(38);
+    gap: proadrem(24, 38, $tabletRemWithout, $maxWidthRemWithout);
+    &:not(:last-child) {
+      margin-bottom: rem(48);
+    }
+    @media (max-width: $tabletLarge) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $mobileMiddle) {
+      grid-template-columns: repeat(6, rem(250));
+      width: fit-content;
+    }
+  }
+
+  // .our-services__item
+
+  &__item {
+  }
+}
+.service-item {
+  background: url(./../images/our-services/corner-decor-top-left.svg) no-repeat rem(20) rem(20),
+    url(./../images/our-services/corner-decor-top-right.svg) no-repeat top rem(20) right rem(20),
+    url(./../images/our-services/corner-decor-bottom-right.svg) no-repeat bottom rem(20) right rem(20),
+    url(./../images/our-services/corner-decor-bottom-left.svg) no-repeat bottom rem(20) left rem(20),
+    var(--white-color);
+  padding: rem(50) rem(32);
+  padding-top: proadrem(30, 50, $tabletRemWithout, $maxWidthRemWithout);
+  padding-bottom: proadrem(40, 50, $tabletRemWithout, $maxWidthRemWithout);
+  transition: background-color 0.3s ease 0s;
+  @media (any-hover: hover) and (pointer: fine) {
+    &:hover {
+      background: url(./../images/our-services/corner-decor-top-left.svg) no-repeat rem(20) rem(20),
+        url(./../images/our-services/corner-decor-top-right.svg) no-repeat top rem(20) right rem(20),
+        url(./../images/our-services/corner-decor-bottom-right.svg) no-repeat bottom rem(20) right rem(20),
+        url(./../images/our-services/corner-decor-bottom-left.svg) no-repeat bottom rem(20) left rem(20),
+        var(--blue-color);
+      background-size: rem(35) rem(35);
+      & .service-item__title,
+      & .service-item__text {
+        color: var(--white-color);
+      }
+    }
+    &:hover .service-item__img path {
+      fill: var(--white-color);
+    }
+  }
+  @media (max-width: $mobileMiddle) {
+    // padding: rem(24) rem(16) rem(32);
+    padding: rem(24) proadrem(16, 32, $mobileMiddleRemWithout, $tabletRemWithout)
+      proadrem(32, 40, $mobileMiddleRemWithout, $tabletRemWithout);
+  }
+  // .service-item__img
+
+  &__img {
+    margin-left: auto;
+    margin-right: auto;
+    // transition: all 3s ease 0s;
+    &:not(:last-child) {
+      margin-bottom: rem(15);
+    }
+    & path {
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  // .service-item__title
+
+  &__title {
+    color: var(--main-color);
+    font-size: rem(20);
+    font-weight: 800;
+    line-height: 1.5;
+    transition: all 0.3s ease 0s;
+    &:not(:last-child) {
+      margin-bottom: rem(10);
+    }
+    @media (max-width: $tabletLarge) {
+      line-height: 1.2;
+    }
+  }
+
+  // .service-item__text
+
+  &__text {
+    color: var(--main-color);
+    font-size: rem(14);
+    font-weight: 400;
+    transition: all 0.3s ease 0s;
+    @media (max-width: $mobileMiddle) {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+
+  // .service-item__button
+
+  &__button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.button {
+}

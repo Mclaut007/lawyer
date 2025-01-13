@@ -1,0 +1,250 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	line-height: 1;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	scrollbar-gutter: stable;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button {
+	cursor: pointer;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+a,
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+svg {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+// В font-size можно записать самый частый размер шрифта на сайте, в font-family - самый частое семейство шрифта.
+
+body {
+	font-family: "Nunito Sans", sans-serif;
+	font-size: rem(14);
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--main-color);
+	// overflow-wrap: break-word;
+	// word-wrap: break-word;
+}
+
+body._lock {
+	overflow: hidden;
+}
+
+/*--------- visually-hidden ---------*/
+
+// Класс, который можно использовать для элементов, которые  нужно скрыть, но так, чтобы скринридеры их видели. Например, заголовок, который должен по логике быть, но по дизайн-макету его нет. Или контент для табов((?) Анимировать это дело получится, разве?). Когда display: none; не подходит. При display: none; ни поисковики, ни скринридеды, вроде как, не видят скрытый элемент. Атрибут hidden может заменить display: none;
+// Если нужно сделать плавное появление и исчезновение выпадающего меню (например), видимо, придется использовать, к примеру, visibility и opacity (hidden и 0). Но при этом нужно, чтобы элемент был спозиционирован абсолютно, к примеру (?). Иначе он будет продолжать занимать место в разметке.
+//Вариант: opacity: 0; pointer-events: none; (и поисковики, и скринридеры видят элемент, элемент занимает место в разметке).
+// ??? (по скрытым ссылкам же будет при табе происходить фокусировка, что будет не видно) Можно попробовать opacity и pointer-events: none. Без visibility: hidden; В этом случае скрытый элемент будут видеть и поисковики, и скринридеры. При visibility: hidden; скринридеры видеть элемент, вроде, не будут.
+// Исчезновение блока можно сделать с помощью спойлера (за счет height: 0;). В этом случае исчезновение/появление анимируется. И скрытый элемент будут видеть и поисковики, и скринридеры. (Но нужно убирать паддинги и бордер. Либо делать обертку?).
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
+
+/*------------------*/
+
+.wrapper {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+/*------------------*/
+
+// Функция возвращает размер шрифта в rem (переводит из пикселей в rem). По умолчанию в браузерах это 16px. В стилях для конкретного текста можно писать font-size: rem(32); Это пример. Тогда в файле css окажется 2rem. 16px - это размер по умолчанию в браузерах. $size пишем без 'px'.
+
+[class$="__container"],
+[class$="-container"] {
+	max-width: $maxWidth;
+	// max-width: proadrem(726, $maxWidthPx, $tabletRemWithout, $maxWidthRemWithout);
+	min-width: $minWidth;
+	padding: 0 rem(15);
+	margin: 0 auto;
+	@media (max-width: $tabletLarge) {
+		max-width: rem(726);
+	}
+	@media (max-width: $mobileMiddle) {
+		padding: 0 rem(20);
+	}
+}
+
+.main {
+	flex-grow: 1;
+}
+
+.button {
+	display: block;
+	width: fit-content;
+	color: var(--white-color);
+	background: var(--blue-color);
+	font-weight: 900;
+	text-transform: uppercase;
+	padding: rem(16) rem(24);
+	transition: all 0.3s ease 0s;
+	border: 2px solid var(--blue-color);
+	&._gray {
+		color: var(--main-color);
+		background: var(--gray-color);
+		border: 2px solid var(--gray-color);
+	}
+	@media (any-hover: hover) and (pointer: fine) {
+		&:hover {
+			color: var(--blue-color);
+			background: var(--white-color);
+			border: 2px solid var(--blue-color);
+		}
+		&._gray:hover {
+			color: var(--main-color);
+			background: var(--white-color);
+			border: 2px solid var(--gray-color);
+		}
+	}
+}
+
+.heading2 {
+	// font-size: rem(28);
+	font-size: proadrem(24, 28, $tabletRemWithout, $maxWidthRemWithout);
+	font-weight: 800;
+	line-height: 1.5;
+	text-transform: uppercase;
+	position: relative;
+	&::after {
+		content: "";
+		width: rem(50);
+		height: rem(3);
+		background: var(--blue-color);
+		position: absolute;
+		bottom: rem(-13);
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+	@media (max-width: $tablet) {
+		font-size: proadrem(20, 24, $mobileSmallRemWithout, $tabletRemWithout);
+	}
+}
+
+.intro-text {
+	font-size: rem(16);
+	font-weight: 400;
+	@media (max-width: $tablet) {
+		font-size: proadrem(14, 16, $mobileSmallRemWithout, $tabletRemWithout);
+	}
+}
+
+._blue {
+	color: var(--blue-color);
+}
+
+.logo {
+	font-weight: 900;
+	// line-height: 1.5;
+	transition: all 0.3s ease 0s;
+	@media (any-hover: hover) and (pointer: fine) {
+		&:hover {
+			& .header__logo-title {
+				color: var(--white-color);
+			}
+			& .header__logo-subtitle {
+				color: var(--blue-color);
+			}
+		}
+	}
+}
+
+// .logo__title
+
+.logo__title {
+	color: var(--blue-color);
+	// font-size: rem(28);
+	font-size: proadrem(22, 28, $tabletRemWithout, $maxWidthRemWithout);
+	text-transform: uppercase;
+	transition: all 0.3s ease 0s;
+}
+
+// logo__subtitle
+
+.logo__subtitle {
+	color: var(--white-color);
+	// font-size: rem(20);
+	font-size: proadrem(16, 20, $tabletRemWithout, $maxWidthRemWithout);
+	text-transform: lowercase;
+	transition: all 0.3s ease 0s;
+}
